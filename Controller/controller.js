@@ -155,7 +155,7 @@ exports.createDelivererAccount = async (req, res, next) => {
         
     }else{
         res.json({
-            message: `deliverer already exist`,
+            message: `deliverer already exist ${existingUser.exists} ${existingUser.id}`,
         });
     }
 
