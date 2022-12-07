@@ -209,8 +209,6 @@ exports.updateAdminData = async(req, res, next) => {
 
 }
 
-
-
 exports.disableAccount = async(req, res, next) => {
     const userId = req.body['userUid'];
     const disabled = req.body['disabled'];
