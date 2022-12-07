@@ -23,7 +23,7 @@ app.use((error, req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('Welcome to MonResto with the best host Render in the world!');
+    res.send('Welcome to MonResto with the best host Render in the world !');
   });
 
 app.use(function(req, res, next) {
