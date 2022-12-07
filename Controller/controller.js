@@ -92,7 +92,7 @@ exports.updateDelivererAccount = async (req, res, next) => {
                         "uid": response.uid,
                         "delivererName": displayName,
                         "delivererPhone": delivererPhone,
-                        "passcode": passCode
+                        "delivererPassCode": passCode
                     });
             res.status(201).json({
                 message: `deliverer update successfully`,
@@ -141,7 +141,7 @@ exports.createDelivererAccount = async (req, res, next) => {
                         "delivererPhone": delivererPhone,
                         "createAt" :createAt,
                         "timestamp" :parseInt(timestamp),
-                        "passcode": passCode,
+                        "delivererPassCode": passCode,
                         "disabled": false
                     });
             res.status(201).json({
