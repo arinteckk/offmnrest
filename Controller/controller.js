@@ -71,7 +71,6 @@ exports.createMAdminAccount = async (req, res, next) => {
 
 
 exports.updateDelivererAccount = async (req, res, next) => {
-    
     const userId = req.body['userUid'];
     const passCode = req.body['delivererPassCode'];
     const delivererPhone = req.body['delivererPhone'];
@@ -115,8 +114,7 @@ exports.updateDelivererAccount = async (req, res, next) => {
 
 
 exports.createDelivererAccount = async (req, res, next) => {
-    
-    const passCode = req.body['passCode'];
+    const passCode = req.body['delivererPassCode'];
     const displayName = req.body['delivererName'];
     const delivererPhone = req.body['delivererPhone'];
     const createAt = req.body['createAt'];
