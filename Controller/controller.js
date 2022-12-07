@@ -73,7 +73,7 @@ exports.createMAdminAccount = async (req, res, next) => {
 exports.updateDelivererAccount = async (req, res, next) => {
     
     const userId = req.body['userUid'];
-    const passCode = req.body['passCode'];
+    const passCode = req.body['delivererPassCode'];
     const delivererPhone = req.body['delivererPhone'];
     const displayName = req.body['delivererName'];
 
@@ -124,7 +124,7 @@ exports.createDelivererAccount = async (req, res, next) => {
 
     const users = await db.collection('users').get();
 
-    var existingUser = users.docs.find((user) => user.data().passcode == passCode);
+    var existingUser = users.docs.find((user) => user.data().delivererPassCode == passCode);
 
     if(!existingUser || users.docs.length == 0) {
         fireAdmin.auth()
