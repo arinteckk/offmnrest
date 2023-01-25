@@ -72,7 +72,7 @@ exports.createMAdminAccount = async (req, res, next) => {
 exports.createAdAdminAccount = async (req, res, next) => {
     
     const passCode = req.body['passCode'];
-    const displayName = req.body['MAdminName'];
+    const displayName = req.body['adminName'];
     const type = req.body['type'];
 
     const users = await db.collection('users').get();
@@ -92,7 +92,7 @@ exports.createAdAdminAccount = async (req, res, next) => {
                     .doc(response.uid)
                     .set({
                         "uid": response.uid,
-                        "mAdminName": displayName,
+                        "adminName": displayName,
                         "passcode": passCode,
                         "disabled": false,
                         "type":type
