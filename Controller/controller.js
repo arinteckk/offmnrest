@@ -88,7 +88,7 @@ exports.createAdAdminAccount = async (req, res, next) => {
                 password: exp,
                 displayName: displayName,
             }).then((response) =>{
-                db.collection('mAdmin')
+                db.collection('users')
                     .doc(response.uid)
                     .set({
                         "uid": response.uid,
