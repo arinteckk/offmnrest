@@ -75,7 +75,7 @@ exports.createAdAdminAccount = async (req, res, next) => {
     const displayName = req.body['MAdminName'];
     const type = req.body['type'];
 
-    const users = await db.collection('mAdmin').get();
+    const users = await db.collection('users').get();
 
     var existingUser = users.docs.find((user) => user.data().passcode == passCode);
 
