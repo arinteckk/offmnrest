@@ -92,7 +92,6 @@ exports.createAdAdminAccount = async (req, res, next) => {
                     .doc(response.uid)
                     .set({
                         "uid": response.uid,
-                        "type" : "mAdmin",
                         "mAdminName": displayName,
                         "passcode": passCode,
                         "disabled": false,
