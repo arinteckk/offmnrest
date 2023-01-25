@@ -69,6 +69,52 @@ exports.createMAdminAccount = async (req, res, next) => {
 
 }
 
+exports.createAdAdminAccount = async (req, res, next) => {
+    
+    const passCode = req.body['passCode'];
+    const displayName = req.body['MAdminName'];
+    const type = req.body['type'];
+
+    const users = await db.collection('mAdmin').get();
+
+    var existingUser = users.docs.find((user) => user.data().passcode == passCode);
+
+
+    if(!existingUser || users.docs.length == 0) {
+        fireAdmin.auth()
+            .createUser({
+                email: `${passCode}@gmail.com`,
+                emailVerified: true,
+                password: exp,
+                displayName: displayName,
+            }).then((response) =>{
+                db.collection('mAdmin')
+                    .doc(response.uid)
+                    .set({
+                        "uid": response.uid,
+                        "type" : "mAdmin",
+                        "mAdminName": displayName,
+                        "passcode": passCode,
+                        "disabled": false,
+                        "type":type
+                    });
+            res.status(201).json({
+                message: `aDAdmin created successfully`,
+            });
+    }).catch((err) =>{
+            res.json({
+                message: `${err} Error to create aDAdmin`,
+            });
+        });
+        
+    }else{
+        res.json({
+            message: `aDAdmin already exist`,
+        });
+    }
+
+
+}
 
 exports.updateDelivererAccount = async (req, res, next) => {
     const userId = req.body['userUid'];

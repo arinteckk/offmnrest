@@ -13,6 +13,7 @@ router.post('/updateAdmin',ctrl.updateAdminData);
 router.post('/disabelAccount',ctrl.disableAccount);
 
 router.post('/createMAdminAccount',ctrl.createMAdminAccount);
+router.post('/createAdAdminAccount',ctrl.createAdAdminAccount);
 
 router.post('/createDelivererAccount',ctrl.createDelivererAccount);
 router.post('/updateDelivererAccount',ctrl.updateDelivererAccount);
